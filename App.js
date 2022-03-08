@@ -2,7 +2,7 @@ import { StatusBar } from "expo-status-bar";
 import { StyleSheet, View } from "react-native";
 import Login from "./screens/Login";
 import Search from "./screens/Search";
-
+import Profile from "./screens/Profile";
 import * as React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
@@ -19,6 +19,7 @@ export default function App() {
           options={{ title: "Welcome" }}
         />
         <Stack.Screen name="Search" component={Search} />
+        <Stack.Screen name="Profile" component={Profile} />
       </Stack.Navigator>
     </NavigationContainer>
   );

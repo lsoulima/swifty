@@ -7,22 +7,17 @@ import {
   TouchableOpacity,
   ImageBackground,
 } from "react-native";
-// import { globalStyles } from "../styles/A";
 import * as WebBrowser from "expo-web-browser";
 import * as Linking from "expo-linking";
 export default function Login({ navigation }) {
-  const app_url = Linking.createURL();
-  console.log(app_url);
-
+  const exp_url = Linking.createURL();
   const client_id =
-    "22885e48c641821b3ec506d92722f36f13163875eefc833a7c7b218048631612";
-  console.log(client_id);
-
+    "cd9dae94aea3931be0d85bd082b7ba815c87ebbab6abf7e42ebcf66593bf144a";
   const url =
     "https://api.intra.42.fr/oauth/authorize?client_id=" +
     client_id +
     "&redirect_uri=" +
-    app_url +
+    exp_url +
     "&response_type=code";
 
   const handleLogin = async () => {
@@ -31,9 +26,8 @@ export default function Login({ navigation }) {
       let data = Linking.parse(event.url);
       let code = data.queryParams.code;
       console.log(code);
-
       WebBrowser.dismissBrowser();
-      navigation.navigate("Search", { code: code, app_url: app_url });
+      navigation.navigate("Search", { code: code, exp_url: exp_url });
     });
   };
 
